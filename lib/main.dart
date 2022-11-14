@@ -1,10 +1,12 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:meals/screens/categories_meals_screen.dart';
 import 'package:meals/screens/categories_screen.dart';
- 
+import 'package:meals/utils/app_routes.dart';
+
 void main() => runApp(MyApp());
- 
+
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
@@ -20,13 +22,16 @@ class MyApp extends StatelessWidget {
         canvasColor: const Color.fromRGBO(255, 254, 229, 1),
         fontFamily: 'Raleway',
         textTheme: ThemeData.light().textTheme.copyWith(
-          headline6: const TextStyle(
-            fontSize: 20,
-            fontFamily: 'RobotoCondensed'
-          )
-        )
+              headline6:
+                  const TextStyle(fontSize: 20, fontFamily: 'RobotoCondensed'),
+            ),
       ),
-      home: const CategoriesScreen(),
+      // home: CategoriesScreen() ,
+      // initialRoute: '/',
+      routes: {
+        AppRoutes.HOME: (ctx) => const CategoriesScreen(),
+        AppRoutes.CATEGORIES_MEALS: (ctx) => const CategoriesMealsScreen()
+      },
     );
   }
 }
