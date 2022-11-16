@@ -34,6 +34,26 @@ class MyApp extends StatelessWidget {
         AppRoutes.categoriesMeals: (ctx) => const CategoriesMealsScreen(),
         AppRoutes.mealDetail: (ctx) => const MealDetailScreen(),
       },
+      // onGenerateRoute: (settings) {
+      //   // Configuração Utilizada para tratar redirecionamento
+      //   // caso a rota solicitada não seja encontrada
+      //   if (settings.name == '/alguma-coisa') {
+      //     return null;
+      //   } else if (settings.name == '/outra-coisa') {
+      //     return null;
+      //   } else {
+      //     return MaterialPageRoute(builder: (_) {
+      //       return const CategoriesScreen();
+      //     });
+      //   }
+      // },
+      onUnknownRoute: (settings) {
+        return MaterialPageRoute(
+          builder: (_) {
+            return const CategoriesScreen();
+          },
+        );
+      },
     );
   }
 }
